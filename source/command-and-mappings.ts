@@ -24,4 +24,11 @@ export const mapping = {
     command: commands.clearData,
     title: "clear storage",
   },
+  "5": {
+    command: (bundleId: string, packageName: string) =>
+      `${commands.clearData(bundleId)}` +
+      ` && ` +
+      `${commands.restart(bundleId, packageName)}`,
+    title: "clear & restart",
+  },
 } as const;

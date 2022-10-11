@@ -1,25 +1,35 @@
 #!/usr/bin/env node
-import React from 'react';
-import {render} from 'ink';
-import meow from 'meow';
-import App from './ui';
+import React from "react";
+import { render } from "ink";
+import meow from "meow";
+import App from "./ui";
 
-const cli = meow(`
-	Usage
-	  $ appkiller
+const cli = meow(
+  `
+  Usage
+    $ appkiller
 
-	Options
-		--name  Your name
+  Options
+    --bundleId     Your app bundle id
+    --packageName  Your app packageName id
 
-	Examples
-	  $ appkiller --name=Jane
-	  Hello, Jane
-`, {
-	flags: {
-		name: {
-			type: 'string'
-		}
-	}
-});
+  Examples
+    $ appkiller --bundleId=fr.mydomain.myapp.debug
+`,
+  {
+    flags: {
+      bundleId: {
+        type: "string",
+        isRequired: true,
+      },
+      packageName: {
+        type: "string",
+        isRequired: true,
+      },
+    },
+  }
+);
 
-render(<App name={cli.flags.name}/>);
+render(
+  <App bundleId={cli.flags.bundleId} packageName={cli.flags.packageName} />
+);

@@ -1,12 +1,13 @@
 {
 	"name": "appkiller",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"license": "MIT",
 	"bin": "dist/cli.js",
 	"engines": {
 		"node": ">=10"
 	},
 	"scripts": {
+		"prepare": "yarn build",
 		"build": "tsc && chmod +x dist/cli.js",
 		"start": "npm run build && dist/cli.js",
 		"pretest": "npm run build",

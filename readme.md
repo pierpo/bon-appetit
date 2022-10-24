@@ -2,6 +2,8 @@
 
 Kill your Android app. Let it live again. Control it.
 
+![example](./example.png)
+
 
 ## Install
 

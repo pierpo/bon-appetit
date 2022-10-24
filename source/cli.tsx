@@ -7,14 +7,14 @@ import App from "./ui";
 const cli = meow(
   `
   Usage
-    $ appkiller
+    $ bon-appetit
 
   Options
     --bundleId     Your app bundle id
     --packageName  Your app packageName id
 
   Examples
-    $ appkiller --bundleId=fr.mydomain.myapp.debug
+    $ bon-appetit --bundleId=fr.mydomain.myapp.debug
 `,
   {
     flags: {

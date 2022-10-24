@@ -14,7 +14,7 @@
 		"test": "xo && ava"
 	},
 	"files": [
-		"dist/cli.js"
+		"dist/"
 	],
 	"dependencies": {
 		"@types/node": "^18.8.3",

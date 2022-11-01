@@ -5,6 +5,7 @@ const commands = {
     `adb shell am force-stop ${bundleId} && adb shell am start -n ${bundleId}/${packageName}.MainActivity`,
   kill: (bundleId: string) => `adb shell am force-stop ${bundleId}`,
   clearData: (bundleId: string) => `adb shell pm clear ${bundleId}`,
+  uninstall: (bundleId: string) => `adb uninstall ${bundleId}`,
 } as const;
 
 export const mapping = {
@@ -30,5 +31,9 @@ export const mapping = {
       ` && ` +
       `${commands.restart(bundleId, packageName)}`,
     title: "clear & restart",
+  },
+  "6": {
+    command: commands.uninstall,
+    title: "uninstall",
   },
 } as const;

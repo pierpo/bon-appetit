@@ -6,6 +6,7 @@ const commands = {
   kill: (bundleId: string) => `adb shell am force-stop ${bundleId}`,
   clearData: (bundleId: string) => `adb shell pm clear ${bundleId}`,
   uninstall: (bundleId: string) => `adb uninstall ${bundleId}`,
+  reverse: () => `adb reverse tcp:8081 tcp:8081`,
 } as const;
 
 export const mapping = {
@@ -33,6 +34,10 @@ export const mapping = {
     title: "clear & restart",
   },
   "6": {
+    command: commands.reverse,
+    title: "adb reverse tcp:8081 tcp:8081",
+  },
+  "u": {
     command: commands.uninstall,
     title: "uninstall",
   },

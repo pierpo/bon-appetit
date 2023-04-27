@@ -36,7 +36,7 @@ export const mapping = {
     command: commands.reverse,
     title: "adb reverse tcp:8081 tcp:8081",
   },
-  "u": {
+  u: {
     command: commands.uninstall,
     title: "uninstall",
   },

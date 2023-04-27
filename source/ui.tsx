@@ -20,11 +20,17 @@ const executeCommand = (cmd: string, setState: (state: States) => void) => {
 const App = ({
   bundleId,
   packageName,
+  activity,
 }: {
   bundleId: string;
-  packageName: string;
+  packageName: string | undefined;
+  activity: string | undefined;
 }) => {
   const [state, setState] = useState<States>("initial");
+
+  const fullActivity = activity
+    ? `${bundleId}/${activity}`
+    : `${bundleId}/${packageName}.MainActivity`;
 
   useInput((input) => {
     if (state === "doing") {
@@ -38,7 +44,7 @@ const App = ({
     if (hasOwnProperty(mapping, input)) {
       const action = mapping[input];
 
-      executeCommand(action.command(bundleId, packageName), setState);
+      executeCommand(action.command(bundleId, fullActivity), setState);
     }
   });
 

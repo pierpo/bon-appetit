@@ -1,8 +1,7 @@
 const commands = {
-  start: (bundleId: string, packageName: string) =>
-    `adb shell am start -n ${bundleId}/${packageName}.MainActivity`,
-  restart: (bundleId: string, packageName: string) =>
-    `adb shell am force-stop ${bundleId} && adb shell am start -n ${bundleId}/${packageName}.MainActivity`,
+  start: (_: string, activity: string) => `adb shell am start -n ${activity}`,
+  restart: (bundleId: string, activity: string) =>
+    `adb shell am force-stop ${bundleId} && adb shell am start -n ${activity}`,
   kill: (bundleId: string) => `adb shell am force-stop ${bundleId}`,
   clearData: (bundleId: string) => `adb shell pm clear ${bundleId}`,
   uninstall: (bundleId: string) => `adb uninstall ${bundleId}`,
